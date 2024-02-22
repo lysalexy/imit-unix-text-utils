@@ -26,7 +26,7 @@ for ((integer = 0; integer <= 32767; integer++)); do
         valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./../s21_grep ${flags} ${files} 1>/dev/null 2>/dev/null || echo -e "\033[0;31mVALGRIND FAILED\033[0m ${flags} ${files}"
         #### если вывод следующей команды пустой, то passed, иначе-вывод отличий
         ###(grep ${flags} ${files}) | diff -u - <(./../s21_grep ${flags} ${files}) &&  echo -e "\033[32mPASSED\033[0m ${flags} ${files}" ||  echo -e "\033[0;31mDIFFER FROM SYSTEM CALL\033[0m ${flags} ${files}"
-        (grep ${flags} ${files}) 2>/dev/null | diff -u - <(./../s21_grep ${flags} ${files} 2>/dev/null) && echo -e "\033[32mPASSED\033[0m ${flags} ${files}" || echo -e "\033[0;31mDIFFER FROM SYSTEM CALL\033[0m ${flags} ${files}" || echo -e "\033[0;31mDIFFER FROM SYSTEM CALL\033[0m ${flags} ${files}"
+        (grep ${flags} ${files}) 2>/dev/null | diff -u - <(./../imit_grep ${flags} ${files} 2>/dev/null) && echo -e "\033[32mPASSED\033[0m ${flags} ${files}" || echo -e "\033[0;31mDIFFER FROM SYSTEM CALL\033[0m ${flags} ${files}" || echo -e "\033[0;31mDIFFER FROM SYSTEM CALL\033[0m ${flags} ${files}"
         testsPassed+=1
     done
 done

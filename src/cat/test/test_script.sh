@@ -23,6 +23,6 @@ for ((integer = 0; integer <= 2023; integer++)); do
         echo ${flags} ${files}
        # valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./../s21_cat ${flags} ${files} 1>/dev/null 2>/dev/null || echo -e "\033[0;31mVALGRIND FAILED\033[0m ${flags} ${files}"
         #### если вывод следующей команды пустой, то passed, иначе-вывод отличий
-        (cat ${flags} ${files}) | diff -u - <(./../s21_cat ${flags} ${files})
+        (cat ${flags} ${files}) | diff -u - <(./../imit_cat ${flags} ${files})
     done
 done
